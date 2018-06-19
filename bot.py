@@ -18,8 +18,8 @@ client.remove_command('help')
 @client.command()
 async def help():
     msg = ("**$pin [gym name]**    Get a location pin for the gym. Please type one word unique to the gym name OR more than one word in quotation marks, such as: \n" + \
-    "\t**!pin fellowship**\n" + \
-    "\t**!pin \"sky cutter\"**\n" + \
+    "\t**$pin fellowship**\n" + \
+    "\t**$pin \"sky cutter\"**\n" + \
     "If multiple gyms have similar names, the bot will ask you to clarify which gym you need a pin for. For example, searching **$pin American** will return the following:\n" + \
     "\t1.  Spanish American War\n" + \
     "\t2.  The American Mile\n" + \
@@ -49,7 +49,7 @@ async def pin(context, gym_name):
             gym = value
             matches.append([name, gym])
 
-    print('matches contains ' + str(len(matches)) + ' results')
+    # print('matches contains ' + str(len(matches)) + ' results')
     if len(matches) > 1:
         
         gymsString = ''
