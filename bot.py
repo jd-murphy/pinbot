@@ -17,17 +17,17 @@ client = Bot(command_prefix=BOT_PREFIX)
 client.remove_command('help')
 @client.command()
 async def help():
-    msg = ("**!pin [gym name]**    Get a location pin for the gym. Please type one word unique to the gym name OR more than one word in quotation marks, such as: \n" + \
+    msg = ("**$pin [gym name]**    Get a location pin for the gym. Please type one word unique to the gym name OR more than one word in quotation marks, such as: \n" + \
     "\t!pin fellowship\n" + \
     "\t!pin \"sky cutter\"\n" + \
-    "If multiple gyms have a common name, the bot will ask you to clarify which gym you need a pin for. For example, searching for 'American' will return the following:\n" + \
+    "If multiple gyms have a common name, the bot will ask you to clarify which gym you need a pin for. For example, searching **$pin American** will return the following:\n" + \
     "\t1.  Spanish American War\n" + \
     "\t2.  The American Mile\n" + \
     "\t3.  The American Mile: 1840\n" + \
     "\t4.  American Hackberry\n" + \
     "\t5.  Brazos Valley African American Museum\n" + \
-    "To select an option from the list, type **show [number]** to choose the correct gym."
-    ":point_right:     Type **$pin [number]** to get your pin" )
+    "To select an option from the list, just type **show [number]** to choose the correct gym.\n\n" + \
+    ":point_right:     Type **$pin [gym name]** to get started!" )
     await client.say(msg)
 
 
@@ -63,7 +63,7 @@ async def pin(context, gym_name):
         await client.send_message(context.message.channel, 'Were you looking for one of these gyms?\n' + gymsString + "\nType **show [number]** to get your pin")
 
         def check(msg):
-            return msg.content.startswith('show')
+            return msg.content.lower().startswith('show')
 
         message = await client.wait_for_message(author=context.message.author, check=check)
         num = message.content[len('show'):].strip()
@@ -86,6 +86,10 @@ def loadGyms():
 
 @client.event
 async def on_message(message):
+
+    if client.user in message.mentions:
+        if 'thanks' in message.content.lower() or 'thank you' in message.content.lower():
+            await client.send_message(message.channel, "Anything for you kid. :ok_hand:")
 
     if 'bad bot' in message.content.lower():
         await client.send_message(message.channel, ":sweat:")
