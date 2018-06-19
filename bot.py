@@ -18,9 +18,9 @@ client.remove_command('help')
 @client.command()
 async def help():
     msg = ("**$pin [gym name]**    Get a location pin for the gym. Please type one word unique to the gym name OR more than one word in quotation marks, such as: \n" + \
-    "\t!pin fellowship\n" + \
-    "\t!pin \"sky cutter\"\n" + \
-    "If multiple gyms have a common name, the bot will ask you to clarify which gym you need a pin for. For example, searching **$pin American** will return the following:\n" + \
+    "\t**!pin fellowship**\n" + \
+    "\t**!pin \"sky cutter\"**\n" + \
+    "If multiple gyms have similar names, the bot will ask you to clarify which gym you need a pin for. For example, searching **$pin American** will return the following:\n" + \
     "\t1.  Spanish American War\n" + \
     "\t2.  The American Mile\n" + \
     "\t3.  The American Mile: 1840\n" + \
@@ -67,7 +67,6 @@ async def pin(context, gym_name):
 
         message = await client.wait_for_message(author=context.message.author, check=check)
         num = message.content[len('show'):].strip()
-        print('num: ' + str(num))
         await client.send_message(message.channel, matches[int(num)-1][0] + "\n" + matches[int(num)-1][1])
     else:        
         await client.say(matches[0][0] + "\n" + matches[0][1]) 
@@ -99,14 +98,14 @@ async def on_message(message):
     await client.process_commands(message)
         
 
-# async def list_servers():
-#     await client.wait_until_ready()
-#     while not client.is_closed:
-#         print("Current servers:")
-#         for server in client.servers:
-#             print(server.name)
-#         await asyncio.sleep(6)
+async def list_servers():
+    await client.wait_until_ready()
+    while not client.is_closed:
+        print("\n\n\n\nCURRENT SERVERS:")
+        for server in client.servers:
+            print(server.name)
+        await asyncio.sleep(600)
 
-# client.loop.create_task(list_servers())
 
+client.loop.create_task(list_servers())
 client.run(TOKEN)
