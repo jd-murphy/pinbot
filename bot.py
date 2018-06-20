@@ -89,6 +89,8 @@ async def on_message(message):
     if client.user in message.mentions:
         if 'thanks' in message.content.lower() or 'thank you' in message.content.lower():
             await client.send_message(message.channel, "Anything for you kid. :ok_hand:")
+        if 'your the best' in message.content.lower() or 'you\'re the best' in message.content.lower():
+            await client.send_message(message.channel, "I know. :stuck_out_tongue:")
 
     if 'bad bot' in message.content.lower():
         await client.send_message(message.channel, ":sweat:")
