@@ -5,13 +5,13 @@ import csv
 import discord
 from discord.ext.commands import Bot
 from discord import Game
+from os import environ
 
 
 # Gym Helper bot for BCS Pokemon Go - developed with love for this awesome community by  @Aydenandjordan  6/18/2018 
-TOKEN = 'NDU4NDI4NTM5MzM1ODY4NDM4.DgngZw.vqbhW9XCPARtNm2Dggh1yDYSpEQ'
-BOT_PREFIX = ("$")
+TOKEN = environ['TOKEN']
+BOT_PREFIX = ("$", "+")
 GYMS = {}
-
 
 client = Bot(command_prefix=BOT_PREFIX)
 client.remove_command('help')
