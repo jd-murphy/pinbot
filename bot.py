@@ -106,6 +106,8 @@ async def list_servers():
         print("\n\n\n\nCURRENT SERVERS:")
         for server in client.servers:
             print(server.name)
+            for role in server.roles:
+                print('Role: ' + role.name + "   ID: " + role.id)
         await asyncio.sleep(600)
 
 
