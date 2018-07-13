@@ -89,7 +89,7 @@ async def twilioCheck(context):
     if context.message.author.id == '361223731986825218':
         print("Running twilio check.")
         status = uctwilio.report(context.message)
-        print('status from : twilioCheck()' + status)
+        print('status from : twilioCheck() ' + status)
 
 
 
