@@ -11,8 +11,8 @@ def report(message):
         status = 'Connected'
         print('calling twilio api..')
         twilioMessage = twilioClient.messages.create(
-                body= ':100: :100: :100:\n' + message.content + '\n- tagged by ' + message.author.name \
-                    + ' in #' + message.channel.name + ' (' + message.server.name + ')',
+                body=message.content + '\n- tagged by ' + message.author.name \
+                    + ' in #' + message.channel.name + '\n(' + message.server.name + ')',
                 from_=environ['from'],
                 to=environ['to']
             )

@@ -84,13 +84,13 @@ def loadGyms():
     print(GYMS['Dixie Chicken'])
 
 
-@client.command(pass_context=True,
-                description='Get a location pin for the gym.', 
-                brief='Get a location pin for the gym.')
+@client.command(pass_context=True)
 async def twilioCheck(context): 
     if context.message.author.id == '361223731986825218':
         print("Running twilio check.")
         status = uctwilio.report(context.message)
+        print('status from : twilioCheck()' + status)
+
 
 
 @client.event
@@ -100,13 +100,13 @@ async def on_message(message):
     if '<@&403060533017837569>' in message.content:
         print('@HundyChaser mention! (3ts)')
         status = uctwilio.report(message)
-        print('status from sendTwilioMessage: ' + status)
+        print('status from : uctwilio.report()' + status)
 
     # Role: HundyHunters   ID: 398995832978014210          
     if '<@&398995832978014210>' in message.content:
         print('@HundyHunters mention! (aqua)')
         status = uctwilio.report(message)
-        print('status from sendTwilioMessage: ' + status)
+        print('status from : uctwilio.report()' + status)
 
    
 
