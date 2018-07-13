@@ -87,9 +87,13 @@ def loadGyms():
 async def on_message(message):
 
     if client.user in message.mentions:
+        if 'we rockin\' and rollin\'' in message.content.lower() or 'we rockin and rollin' in message.content.lower():
+            await client.send_message(message.channel, "We're rockin\' and rollin\'.")
         if 'thanks' in message.content.lower() or 'thank you' in message.content.lower():
             await client.send_message(message.channel, "Anything for you kid. :ok_hand:")
-        if 'your the best' in message.content.lower() or 'you\'re the best' in message.content.lower():
+        if 'your the best' in message.content.lower() or 'you\'re the best' in message.content.lower() \
+            or 'youre the best' in message.content.lower() or 'youre the best,' in message.content.lower() \
+            or 'your the best,' in message.content.lower() or 'you\'re the best,' in message.content.lower():
             await client.send_message(message.channel, "I know. :stuck_out_tongue:")
 
     if 'bad bot' in message.content.lower():
