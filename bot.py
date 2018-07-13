@@ -7,6 +7,7 @@ from discord.ext.commands import Bot
 from discord import Game
 from os import environ
 
+import uctwilio 
 
 # Gym Helper bot for BCS Pokemon Go - developed with love for this awesome community by  @Aydenandjordan  6/18/2018 
 TOKEN = environ['TOKEN']
@@ -83,12 +84,35 @@ def loadGyms():
     print(GYMS['Dixie Chicken'])
 
 
+@client.command(pass_context=True,
+                description='Get a location pin for the gym.', 
+                brief='Get a location pin for the gym.')
+async def twilioCheck(context): 
+    if context.message.author.id == '361223731986825218':
+        print("Running twilio check.")
+        status = uctwilio.report(context.message)
+
+
 @client.event
 async def on_message(message):
 
+    # Role: Hundy Chaser   ID: 403060533017837569          
+    if '<@&403060533017837569>' in message.content:
+        print('@HundyChaser mention! (3ts)')
+        status = uctwilio.report(message)
+        print('status from sendTwilioMessage: ' + status)
+
+    # Role: HundyHunters   ID: 398995832978014210          
+    if '<@&398995832978014210>' in message.content:
+        print('@HundyHunters mention! (aqua)')
+        status = uctwilio.report(message)
+        print('status from sendTwilioMessage: ' + status)
+
+   
+
     if client.user in message.mentions:
         if 'we rockin\' and rollin\'' in message.content.lower() or 'we rockin and rollin' in message.content.lower():
-            await client.send_message(message.channel, "We're rockin\' and rollin\'.")
+            await client.send_message(message.channel, "We're rockin\' and rollin\', baby")
         if 'thanks' in message.content.lower() or 'thank you' in message.content.lower():
             await client.send_message(message.channel, "Anything for you kid. :ok_hand:")
         if 'your the best' in message.content.lower() or 'you\'re the best' in message.content.lower() \
