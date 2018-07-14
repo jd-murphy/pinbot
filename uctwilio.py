@@ -10,12 +10,20 @@ def report(message):
         twilioClient = Client(account_sid, auth_token)
         status = 'Connected'
         print('calling twilio api..')
-        twilioMessage = twilioClient.messages.create(
-                body=message.content + '\n- tagged by ' + message.author.name \
-                    + ' in #' + message.channel.name + '\n(' + message.server.name + ')',
-                from_=environ['from'],
-                to=environ['to']
-            )
+
+        if 'aqua' in message.server.name.lower():
+            nums = [environ['j']]
+        else:
+            nums = [environ['j'],environ['b']]
+            
+        for num in nums:
+            twilioMessage = twilioClient.messages.create(
+                    body=message.content + '\n- tagged by ' + message.author.name \
+                        + ' in #' + message.channel.name + '\n(' + message.server.name + ')',
+                    from_=environ['from'],
+                    to=num
+                )
+
         totalMessagesSent += 1
         print('message sent by ' + message.author.name + ', content: ' + message.content + ' - twilioMessage.sid -> ' + str(twilioMessage.sid))
 
