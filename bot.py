@@ -43,6 +43,10 @@ async def on_ready():
                 description='Get a location pin for the gym.', 
                 brief='Get a location pin for the gym.')
 async def pin(context, gym_name):    
+    
+    if gym_name.lower() == "ai":
+        gym_name = "Animal Industries"
+
     matches = []
     for key, value in GYMS.items():
         if gym_name.lower() in key.lower():
@@ -88,8 +92,7 @@ def loadGyms():
 async def twilioCheck(context): 
     if context.message.author.id == '361223731986825218':
         print("Running twilio check.")
-        status = uctwilio.report(context.message)
-        print('status from : twilioCheck() ' + status)
+        uctwilio.check()
 
 
 

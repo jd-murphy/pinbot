@@ -1,13 +1,16 @@
 from os import environ
 from twilio.rest import Client
 
+
+account_sid = environ['account_sid']
+auth_token = environ['auth_token']
+twilioClient = Client(account_sid, auth_token)
+
+
 def report(message):
     status = 'Tagged'
     totalMessagesSent = 0
     try:
-        account_sid = environ['account_sid']
-        auth_token = environ['auth_token']
-        twilioClient = Client(account_sid, auth_token)
         status = 'Connected'
         print('calling twilio api..')
 
@@ -24,7 +27,7 @@ def report(message):
                     to=num
                 )
             totalMessagesSent += 1
-            
+
         print('message sent by ' + message.author.name + ', content: ' + message.content + ' - twilioMessage.sid -> ' + str(twilioMessage.sid))
 
                 
@@ -37,3 +40,12 @@ def report(message):
         print('ERROR sending twilio report! -> ' + str(e))
     finally:
         return 'Done: ' + status
+
+
+def check():
+    twilioMessage = twilioClient.messages.create(
+        body="Twilio check! Bot is working fine.",
+        from_=environ['from'],
+        to=environ['j']
+    )
+    print("twilioMessage.sid from twilio check " + str(twilioMessage.sid))
