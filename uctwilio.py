@@ -11,11 +11,11 @@ def report(message):
         status = 'Connected'
         print('calling twilio api..')
 
-        if 'aqua' in message.server.name.lower():
+        if "Team Aqua's Hideout" == message.server.name:
             nums = [environ['j']]
         else:
             nums = [environ['j'],environ['b']]
-            
+
         for num in nums:
             twilioMessage = twilioClient.messages.create(
                     body=message.content + '\n- tagged by ' + message.author.name \
