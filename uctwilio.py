@@ -23,8 +23,8 @@ def report(message):
                     from_=environ['from'],
                     to=num
                 )
-
-        totalMessagesSent += 1
+            totalMessagesSent += 1
+            
         print('message sent by ' + message.author.name + ', content: ' + message.content + ' - twilioMessage.sid -> ' + str(twilioMessage.sid))
 
                 
