@@ -107,7 +107,7 @@ Jeremy Richard Frampton Memorial,"30.624879, -96.3364700","https://www.google.co
 Emerging Technologies Building,"30.622570, -96.3396840","https://www.google.com/maps?q=30.622570,-96.3396840"
 "Ralph G. Griffin, Jr. Memorial","30.621523, -96.3393600","https://www.google.com/maps?q=30.621523,-96.3393600"
 History Building,"30.617518, -96.3386430","https://www.google.com/maps?q=30.617518,-96.3386430"
- Industries (AI),"30.617462, -96.3373410","https://www.google.com/maps?q=30.617462,-96.3373410"
+Animal Industries (AI),"30.617462, -96.3373410","https://www.google.com/maps?q=30.617462,-96.3373410"
 David G. Eller Building,"30.617846, -96.3367990","https://www.google.com/maps?q=30.617846,-96.3367990"
 Exploration in Space,"30.617010, -96.3360930","https://www.google.com/maps?q=30.617010,-96.3360930"
 Corps of Cadets,"30.614399, -96.3379260","https://www.google.com/maps?q=30.614399,-96.3379260"
