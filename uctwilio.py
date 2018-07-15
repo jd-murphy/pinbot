@@ -79,3 +79,4 @@ def check():
         to=environ['j']
     )
     print("twilioMessage.sid from twilio check " + str(twilioMessage.sid))
+    return "Check is working fine! twilioMessage.sid from twilio check -> " + str(twilioMessage.sid)

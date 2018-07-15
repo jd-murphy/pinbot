@@ -93,7 +93,10 @@ def loadGyms():
 async def twilioCheck(context): 
     if context.message.author.id == environ['adminID']:
         print("Running twilio check.")
-        uctwilio.check()
+        result = uctwilio.check()
+        member = discord.utils.get(context.message.server.members, id=environ['adminID'])
+        await client.send_message(member, result)
+        
 
 
 
@@ -137,12 +140,16 @@ async def on_message(message):
         print('@HundyChaser mention! (3ts)')
         status = uctwilio.report3TS(message)
         print('status from : uctwilio.report()' + status)
+        member = discord.utils.get(message.server.members, id=environ['adminID'])
+        await client.send_message(member, status)
 
     # Role: HundyHunters   ID: 398995832978014210          
     if '<@&398995832978014210>' in message.content:
         print('@HundyHunters mention! (aqua)')
         status = uctwilio.reportAqua(message)
         print('status from : uctwilio.report()' + status)
+        member = discord.utils.get(message.server.members, id=environ['adminID'])
+        await client.send_message(member, status)
 
    
 
