@@ -15,6 +15,7 @@ config = {
   }
 
 
+
 def push(name, phone, bcspogo, aqua):    
     print("connecting")
     firebase = pyrebase.initialize_app(config)
