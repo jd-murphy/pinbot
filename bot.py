@@ -108,8 +108,9 @@ async def pyrebaseGet(context):
     if context.message.author.id == environ['adminID']:
         data = pyrebase_worker.getData()
         names = []
-        for user in data.val().items():
-            names.append(user.name)
+        for user in data.each():
+            userDict = user.val()
+            names.append(userDict["name"])
         await client.send_message(context.message.author, ' Here is the list of users signed up for twilio hundy notifications ->\n ' + names)
 
 
