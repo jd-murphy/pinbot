@@ -2,3 +2,4 @@ discord.py
 requests
 twilio
 pyrebase
+firebase_admin
