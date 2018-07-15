@@ -6,8 +6,9 @@ import discord
 from discord.ext.commands import Bot
 from discord import Game
 from os import environ
-
 import uctwilio 
+import pyrebase_worker
+
 
 # Gym Helper bot for BCS Pokemon Go - developed with love for this awesome community by  @Aydenandjordan  6/18/2018 
 TOKEN = environ['TOKEN']
@@ -90,9 +91,36 @@ def loadGyms():
 
 @client.command(pass_context=True)
 async def twilioCheck(context): 
-    if context.message.author.id == '361223731986825218':
+    if context.message.author.id == environ['adminID']:
         print("Running twilio check.")
         uctwilio.check()
+
+
+
+@client.command(pass_context=True)
+async def pyrebasePush(context, name, phone, bcspogo, aqua):
+    if context.message.author.id == environ['adminID']:
+        pyrebase_worker.push(name, phone, bcspogo, aqua)
+
+
+@client.command(pass_context=True)
+async def pyrebaseGet(context):
+    if context.message.author.id == environ['adminID']:
+        pyrebase_worker.getData()
+
+
+@client.command(pass_context=True)
+async def pyrebaseGetByServer(context, server):
+    if context.message.author.id == environ['adminID']:
+        pyrebase_worker.getByServer(server)    
+
+
+@client.command(pass_context=True)
+async def pyrebaseRemove(context, name):
+    if context.message.author.id == environ['adminID']:
+        pyrebase_worker.remove(name)
+
+
 
 
 
@@ -102,13 +130,13 @@ async def on_message(message):
     # Role: Hundy Chaser   ID: 403060533017837569          
     if '<@&403060533017837569>' in message.content:
         print('@HundyChaser mention! (3ts)')
-        status = uctwilio.report(message)
+        status = uctwilio.report3TS(message)
         print('status from : uctwilio.report()' + status)
 
     # Role: HundyHunters   ID: 398995832978014210          
     if '<@&398995832978014210>' in message.content:
         print('@HundyHunters mention! (aqua)')
-        status = uctwilio.report(message)
+        status = uctwilio.reportAqua(message)
         print('status from : uctwilio.report()' + status)
 
    
