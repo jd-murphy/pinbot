@@ -15,8 +15,14 @@ config = {
   }
 
 def setUpServiceAccountFile():
-    with open(environ["sapath"], 'w') as f:
-        f.write(environ['serviceAccount'])
+    try:
+        with open(environ["sapath"], 'r') as f:
+            f.write(environ['serviceAccount'])
+    except IOError:
+        with open(environ["sapath"], 'w') as f:
+            f.write(environ['serviceAccount'])
+
+    
 
 
 def push(name, phone, bcspogo, aqua):
