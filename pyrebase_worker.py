@@ -15,7 +15,7 @@ config = {
   }
 
 def setUpServiceAccountFile():
-    with open(environ["sapath"], 'r+') as f:
+    with open(environ["sapath"], 'w') as f:
         f.write(environ['serviceAccount'])
 
 
