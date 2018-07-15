@@ -110,8 +110,8 @@ async def pyrebaseGet(context):
         names = ""
         for user in data.each():
             userDict = user.val()
-            names += userDict["name"] + userDict["phone"] + "\n"
-        await client.send_message(context.message.author, ' Here is the list of users signed up for twilio hundy notifications ->\n ' + names)
+            names += userDict["name"] + "  " + userDict["phone"] + "\n"
+        await client.send_message(context.message.author, ' Here is the list of users signed up for twilio hundy notifications ->\n' + names)
 
 
 @client.command(pass_context=True)
