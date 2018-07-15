@@ -106,7 +106,11 @@ async def pyrebasePush(context, name, phone, bcspogo, aqua):
 @client.command(pass_context=True)
 async def pyrebaseGet(context):
     if context.message.author.id == environ['adminID']:
-        pyrebase_worker.getData()
+        data = pyrebase_worker.getData()
+        names = []
+        for user in data.val().items():
+            names.append(user.name)
+        await client.send_message(context.message.author, ' Here is the list of users signed up for twilio hundy notifications ->\n ' + names)
 
 
 @client.command(pass_context=True)
