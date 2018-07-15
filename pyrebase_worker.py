@@ -11,12 +11,16 @@ config = {
     "projectId": environ["projectId"],
     "storageBucket": environ["storageBucket"],
     "messagingSenderId": environ["messagingSenderId"],
-    "serviceAccount": environ["serviceAccount"]
+    "serviceAccount": environ["sapath"]
   }
 
+def setUpServiceAccountFile():
+    with open(environ["sapath"], 'r+') as f:
+        f.write(environ['serviceAccount'])
 
 
-def push(name, phone, bcspogo, aqua):    
+def push(name, phone, bcspogo, aqua):
+    setUpServiceAccountFile()    
     print("connecting")
     firebase = pyrebase.initialize_app(config)
     db = firebase.database()
@@ -34,6 +38,7 @@ def push(name, phone, bcspogo, aqua):
 
 
 def getData():
+    setUpServiceAccountFile()
     print("connecting")
     firebase = pyrebase.initialize_app(config)
     db = firebase.database()
@@ -77,6 +82,7 @@ def getByServer(server):
 
 
 def remove(name):
+    setUpServiceAccountFile()
     print("connecting")
     firebase = pyrebase.initialize_app(config)
     db = firebase.database()
