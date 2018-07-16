@@ -76,7 +76,7 @@ def check():
     twilioMessage = twilioClient.messages.create(
         body="Twilio check! Bot is working fine.",
         from_=environ['from'],
-        to=environ['j']
+        to=environ['adminPhone']
     )
     print("twilioMessage.sid from twilio check " + str(twilioMessage.sid))
     return "Check is working fine!\ntwilioMessage.sid from twilio check -> " + str(twilioMessage.sid)
