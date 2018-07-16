@@ -113,7 +113,7 @@ async def pyrebaseGet(context):
     if context.message.author.id == environ['adminID']:
         data = pyrebase_worker.getData()
         names = ""
-        for user in sorted(data.each()):
+        for user in data.each():
             userDict = user.val()
             userInfo = userDict["name"] + "    "
             if userDict["BCS Pokemon Go"] == 'true':
