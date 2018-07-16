@@ -113,16 +113,16 @@ async def pyrebaseGet(context):
     if context.message.author.id == environ['adminID']:
         data = pyrebase_worker.getData()
         names = ""
-        for user in data.each():
+        for user in sorted(data.each()):
             userDict = user.val()
-            userInfo = userDict["name"] + "   - "
+            userInfo = userDict["name"] + "    "
             if userDict["BCS Pokemon Go"] == 'true':
-                userInfo += "(3TS) "
+                userInfo += "[3TS] "
             if userDict["Team Aqua's Hideout"] == 'true':
-                userInfo += "(Aqua)"
+                userInfo += "[Aqua]"
             
             names += (userInfo + "\n    " + userDict["phone"] + "\n\n")
-        await client.send_message(context.message.author, ' Here is the list of users signed up for twilio hundy notifications ->\n' + names)
+        await client.send_message(context.message.author, ' Here is the list of users signed up for twilio hundy notifications ->\n\n' + names)
 
 
 @client.command(pass_context=True)
