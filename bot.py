@@ -47,6 +47,8 @@ async def pin(context, gym_name):
     
     if gym_name.lower() == "ai":
         gym_name = "Animal Industries"
+    if gym_name.lower() == "etb":
+        gym_name = "Emerging Technologies"
 
     matches = []
     for key, value in GYMS.items():
