@@ -115,13 +115,13 @@ async def pyrebaseGet(context):
         names = ""
         for user in data.each():
             userDict = user.val()
-            userInfo = userDict["name"] + "    "
+            userInfo = "```" + userDict["name"] + "    "
             if userDict["BCS Pokemon Go"] == 'true':
                 userInfo += "[3TS] "
             if userDict["Team Aqua's Hideout"] == 'true':
                 userInfo += "[Aqua]"
             
-            names += (userInfo + "\n    " + userDict["phone"] + "\n\n")
+            names += (userInfo + "\n    " + userDict["phone"] + "```")
         await client.send_message(context.message.author, ' Here is the list of users signed up for twilio hundy notifications ->\n\n' + names)
 
 
