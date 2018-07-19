@@ -17,9 +17,11 @@ def report3TS(message):
 
         nums = pyrebase_worker.getByServer("BCS Pokemon Go")  
 
+        messageBody = message.content.replace('<@&403060533017837569>', '@Hundy Chaser')
+
         for num in nums:
             twilioMessage = twilioClient.messages.create(
-                    body=message.content + '\n- tagged by ' + message.author.name \
+                    body=messageBody + '\n- tagged by ' + message.author.name \
                         + ' in #' + message.channel.name + '\n(' + message.server.name + ')',
                     from_=environ['from'],
                     to=num
@@ -34,7 +36,7 @@ def report3TS(message):
         status = "ERROR!"
         print('ERROR sending twilio report! -> ' + str(e))
     finally:
-        return 'Done: (report3TS) Status: ' + status
+        return 'Done: report3TS()  -  Status: ' + status
 
 
 
@@ -48,9 +50,11 @@ def reportAqua(message):
 
         nums = pyrebase_worker.getByServer("Team Aqua's Hideout")
 
+        messageBody = message.content.replace('<@&398995832978014210>', '@HundyChaser')
+
         for num in nums:
             twilioMessage = twilioClient.messages.create(
-                    body=message.content + '\n- tagged by ' + message.author.name \
+                    body=messageBody + '\n- tagged by ' + message.author.name \
                         + ' in #' + message.channel.name + '\n(' + message.server.name + ')',
                     from_=environ['from'],
                     to=num
@@ -65,7 +69,7 @@ def reportAqua(message):
         status = "ERROR!"
         print('ERROR sending twilio report! -> ' + str(e))
     finally:
-        return 'Done: (reportAqua) Status: ' + status
+        return 'Done: reportAqua()  -  Status: ' + status
 
 
 

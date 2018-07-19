@@ -148,7 +148,7 @@ async def on_message(message):
     if '<@&403060533017837569>' in message.content:
         print('@HundyChaser mention! (3ts)')
         status = uctwilio.report3TS(message)
-        print('status from : uctwilio.report()' + status)
+        print('status from : uctwilio.report3TS()' + status)
         member = discord.utils.get(message.server.members, id=environ['adminID'])
         await client.send_message(member, status)
 
@@ -156,7 +156,7 @@ async def on_message(message):
     if '<@&398995832978014210>' in message.content:
         print('@HundyHunters mention! (aqua)')
         status = uctwilio.reportAqua(message)
-        print('status from : uctwilio.report()' + status)
+        print('status from : uctwilio.reportAqua()' + status)
         member = discord.utils.get(message.server.members, id=environ['adminID'])
         await client.send_message(member, status)
 
