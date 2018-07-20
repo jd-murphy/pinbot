@@ -8,6 +8,7 @@ from discord import Game
 from os import environ
 import uctwilio 
 import pyrebase_worker
+import server
 
 
 # Gym Helper bot for BCS Pokemon Go - developed with love for this awesome community by  @Aydenandjordan  6/18/2018 
@@ -154,10 +155,15 @@ async def getLogs(context):
             for line in data.val().items():
                 f.write(str(line))
     
-        embed=discord.Embed(title="Download log", url="/log.txt")
+        embed=discord.Embed(title="Download log", url="https://pin-bot-bcs.herokuapp.com/index.html")
         embed.set_author(name="Twilio Log Files ")
         await client.send_message(context.message.author, embed=embed)
 
+
+
+@client.command(pass_context=True)
+async def startServer(context, msg):
+    server.run()
 
 
 
