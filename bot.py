@@ -8,7 +8,6 @@ from discord import Game
 from os import environ
 import uctwilio 
 import pyrebase_worker
-import server
 
 
 # Gym Helper bot for BCS Pokemon Go - developed with love for this awesome community by  @Aydenandjordan  6/18/2018 
