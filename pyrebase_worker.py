@@ -3,6 +3,8 @@ import firebase_admin
 from firebase_admin import credentials
 import json
 from os import environ
+from datetime import datetime
+
 
 config = {
     "apiKey": environ["firebaseApiKey"],
@@ -107,3 +109,19 @@ def remove(name):
     print("result from delete:")
     print(results)
     
+
+
+
+def log(msg):
+    setUpServiceAccountFile()    
+    print("connecting")
+    firebase = pyrebase.initialize_app(config)
+    db = firebase.database()
+    data = {
+        "date": str(datetime.now()),
+        "info": msg
+    }
+    print("pushing...")
+    results = db.child("logs").push(data)
+    print('finished!\nresults ->')
+    print(results)

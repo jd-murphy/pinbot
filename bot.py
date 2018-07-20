@@ -140,6 +140,10 @@ async def pyrebaseRemove(context, name):
         pyrebase_worker.remove(name)
 
 
+@client.command(pass_context=True)
+async def testLogging(context, msg):
+    pyrebase_worker.log(msg)
+
 
 
 
@@ -150,6 +154,7 @@ async def on_message(message):
     if '<@&403060533017837569>' in message.content:
         print('@HundyChaser mention! (3ts)')
         status = uctwilio.report3TS(message)
+        pyrebase_worker.log(status)
         print('status from : uctwilio.report3TS()' + status)
         member = discord.utils.get(message.server.members, id=environ['adminID'])
         await client.send_message(member, status)
@@ -158,6 +163,7 @@ async def on_message(message):
     if '<@&398995832978014210>' in message.content:
         print('@HundyHunters mention! (aqua)')
         status = uctwilio.reportAqua(message)
+        pyrebase_worker.log(status)
         print('status from : uctwilio.reportAqua()' + status)
         member = discord.utils.get(message.server.members, id=environ['adminID'])
         await client.send_message(member, status)
