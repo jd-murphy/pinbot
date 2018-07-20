@@ -125,3 +125,15 @@ def log(msg):
     results = db.child("logs").push(data)
     print('finished!\nresults ->')
     print(results)
+
+
+
+
+def getLogs():
+    setUpServiceAccountFile()
+    print("connecting")
+    firebase = pyrebase.initialize_app(config)
+    db = firebase.database()
+    print("retrieving logs")
+    data = db.child("logs").get()
+    return data

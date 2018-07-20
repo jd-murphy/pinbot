@@ -141,8 +141,21 @@ async def pyrebaseRemove(context, name):
 
 
 @client.command(pass_context=True)
-async def testLogging(context, msg):
+async def logMe(context, msg):
     pyrebase_worker.log(msg)
+
+
+
+@client.command(pass_context=True)
+async def getLogs(context):
+    if context.message.author.id == environ['adminID']:
+        data = pyrebase_worker.getLogs()
+        with open('log.txt', 'w') as f:
+            f.write(data)
+
+        embed=discord.Embed(title="Download log", url="/log.txt")
+        embed.set_author(name="Twilio Log Files ")
+        await client.send_message(context.message.author, embed=embed)
 
 
 
