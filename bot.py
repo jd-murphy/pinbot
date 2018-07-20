@@ -147,16 +147,16 @@ async def logMe(context, msg):
 
 
 @client.command(pass_context=True)
-async def getLogs(context):
-    if context.message.author.id == environ['adminID']:
-        data = pyrebase_worker.getLogs()
-        with open('log.txt', 'w') as f:
-            for line in data.val().items():
-                f.write(str(line))
+async def manage(context):
+    # if context.message.author.id == environ['adminID']:
+    #     data = pyrebase_worker.getLogs()
+    #     with open('log.txt', 'w') as f:
+    #         for line in data.val().items():
+    #             f.write(str(line))
     
-        # embed=discord.Embed(title="Download log", url="https://pin-bot-bcs.herokuapp.com/index.html")
-        embed=discord.Embed(title="Download log", url="https://www.google.com")
-        embed.set_author(name="Twilio Log Files ")
+       
+        embed=discord.Embed(title="Dashboard", url="https://node-bot-dashboard.herokuapp.com/dashboard")
+        embed.set_author(name="Bot Manager")
         await client.send_message(context.message.author, embed=embed)
 
 
