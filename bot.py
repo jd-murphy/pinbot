@@ -155,15 +155,13 @@ async def getLogs(context):
             for line in data.val().items():
                 f.write(str(line))
     
-        embed=discord.Embed(title="Download log", url="https://pin-bot-bcs.herokuapp.com/index.html")
+        # embed=discord.Embed(title="Download log", url="https://pin-bot-bcs.herokuapp.com/index.html")
+        embed=discord.Embed(title="Download log", url="https://www.google.com")
         embed.set_author(name="Twilio Log Files ")
         await client.send_message(context.message.author, embed=embed)
 
 
 
-@client.command(pass_context=True)
-async def startServer(context, msg):
-    server.run()
 
 
 
