@@ -77,8 +77,10 @@ async def pin(context, gym_name):
 
         message = await client.wait_for_message(author=context.message.author, check=check)
         num = message.content[len('show'):].strip()
+        pyrebase_worker.logPin(matches[int(num)-1][0], context.message.author.name)
         await client.send_message(message.channel, matches[int(num)-1][0] + "\n" + matches[int(num)-1][1])
     else:        
+        pyrebase_worker.logPin(matches[0][0], context.message.author.name)
         await client.say(matches[0][0] + "\n" + matches[0][1]) 
 
 

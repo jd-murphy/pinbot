@@ -129,6 +129,24 @@ def log(msg):
 
 
 
+def logPin(gym, user):
+    setUpServiceAccountFile()    
+    print("connecting")
+    firebase = pyrebase.initialize_app(config)
+    db = firebase.database()
+    data = {
+        "date": str(datetime.now()),
+        "gym": gym,
+        "user": user
+    }
+    print("pushing...")
+    results = db.child("pin_data").push(data)
+    print('finished!\nresults ->')
+    print(results)
+
+
+
+
 def getLogs():
     setUpServiceAccountFile()
     print("connecting")
