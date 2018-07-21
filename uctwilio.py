@@ -27,7 +27,7 @@ def report3TS(message):
             totalMessagesSent += 1
 
         print('message sent by ' + message.author.name + ', content: ' + message.content + ' - twilioMessage.sid -> ' + str(twilioMessage.sid))
-        pyrebase_worker.log("SMS content: " + messageBody)
+        pyrebase_worker.log("SMS sent. Contents: " + messageBody)
         status = 'Successfully sent ' + str(totalMessagesSent) + ' messages.'
          
     except Exception as e:
@@ -58,7 +58,7 @@ def reportAqua(message):
             totalMessagesSent += 1
 
         print('message sent by ' + message.author.name + ', content: ' + message.content + ' - twilioMessage.sid -> ' + str(twilioMessage.sid))
-        pyrebase_worker.log("SMS content: " + messageBody)
+        pyrebase_worker.log("SMS sent. Contents: " + messageBody)
         status = 'Successfully sent ' + str(totalMessagesSent) + ' messages.'
          
     except Exception as e:
