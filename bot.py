@@ -147,14 +147,7 @@ async def logMe(context, msg):
 
 
 @client.command(pass_context=True)
-async def manage(context):
-    # if context.message.author.id == environ['adminID']:
-    #     data = pyrebase_worker.getLogs()
-    #     with open('log.txt', 'w') as f:
-    #         for line in data.val().items():
-    #             f.write(str(line))
-    
-       
+async def manage(context):       
         embed=discord.Embed(title="Dashboard", url="https://node-bot-dashboard.herokuapp.com/dashboard")
         embed.set_author(name="Bot Manager")
         await client.send_message(context.message.author, embed=embed)

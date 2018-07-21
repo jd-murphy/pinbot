@@ -14,22 +14,20 @@ def report3TS(message):
     try:
         status = 'Connected'
         print('calling twilio api..')
-
         nums = pyrebase_worker.getByServer("BCS Pokemon Go")  
-
         messageBody = message.content.replace('<@&403060533017837569>', '@Hundy Chaser')
+        messageBody += ('\n- tagged by ' + message.author.name + ' in #' + message.channel.name)
 
         for num in nums:
             twilioMessage = twilioClient.messages.create(
-                    body=messageBody + '\n- tagged by ' + message.author.name \
-                        + ' in #' + message.channel.name + '\n(' + message.server.name + ')',
+                    body=messageBody,
                     from_=environ['from'],
                     to=num
                 )
             totalMessagesSent += 1
 
         print('message sent by ' + message.author.name + ', content: ' + message.content + ' - twilioMessage.sid -> ' + str(twilioMessage.sid))
-
+        pyrebase_worker.log("SMS content: " + messageBody)
         status = 'Successfully sent ' + str(totalMessagesSent) + ' messages.'
          
     except Exception as e:
@@ -47,22 +45,20 @@ def reportAqua(message):
     try:
         status = 'Connected'
         print('calling twilio api..')
-
         nums = pyrebase_worker.getByServer("Team Aqua's Hideout")
-
-        messageBody = message.content.replace('<@&398995832978014210>', '@HundyChaser')
+        messageBody = message.content.replace('<@&398995832978014210>', '@HundyHunters')
+        messageBody += ('\n- tagged by ' + message.author.name + ' in #' + message.channel.name)
 
         for num in nums:
             twilioMessage = twilioClient.messages.create(
-                    body=messageBody + '\n- tagged by ' + message.author.name \
-                        + ' in #' + message.channel.name + '\n(' + message.server.name + ')',
+                    body=messageBody,
                     from_=environ['from'],
                     to=num
                 )
             totalMessagesSent += 1
 
         print('message sent by ' + message.author.name + ', content: ' + message.content + ' - twilioMessage.sid -> ' + str(twilioMessage.sid))
-
+        pyrebase_worker.log("SMS content: " + messageBody)
         status = 'Successfully sent ' + str(totalMessagesSent) + ' messages.'
          
     except Exception as e:
