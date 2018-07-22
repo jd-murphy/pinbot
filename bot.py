@@ -197,8 +197,7 @@ async def on_message(message):
     elif 'good bot' in message.content.lower():
         await client.send_message(message.channel, ":heart_eyes::heart_eyes::heart_eyes:")
     
-    if 'is bae' in message.content.lower():
-        await client.send_message(message.channel, ":kissing_heart:")
+    
 
     await client.process_commands(message)
         
