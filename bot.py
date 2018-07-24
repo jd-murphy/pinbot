@@ -144,12 +144,14 @@ async def pyrebaseRemove(context, name):
 
 @client.command(pass_context=True)
 async def logMe(context, msg):
-    pyrebase_worker.log(msg)
+    if context.message.author.id == environ['adminID']:   
+        pyrebase_worker.log(msg)
 
 
 
 @client.command(pass_context=True)
-async def manage(context):       
+async def manage(context):    
+    if context.message.author.id == environ['adminID']:   
         embed=discord.Embed(title="Dashboard", url="https://node-bot-dashboard.herokuapp.com/dashboard")
         embed.set_author(name="Bot Manager")
         await client.send_message(context.message.author, embed=embed)
