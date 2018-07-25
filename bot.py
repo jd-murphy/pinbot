@@ -11,6 +11,9 @@ import pyrebase_worker
 
 
 # Gym Helper bot for BCS Pokemon Go - developed with love for this awesome community by  @Aydenandjordan  6/18/2018 
+# developer: *slaps roof of this file* this bad boy could fit so much f*@%king documentation in it..
+
+
 TOKEN = environ['TOKEN']
 BOT_PREFIX = ("$", "+")
 GYMS = {}
