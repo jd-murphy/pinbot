@@ -163,7 +163,7 @@ First Baptist Church Bryan,"30.655907, -96.3258420","https://www.google.com/maps
 Wells Fargo Plaza,"30.660808, -96.3287890","https://www.google.com/maps?q=30.660808,-96.3287890"
 Delicate Arch,"30.633017, -96.3461420","https://www.google.com/maps?q=30.633017,-96.3461420"
 Ol' Ball and Chain,"30.629628, -96.3426740","https://www.google.com/maps?q=30.629628,-96.3426740"
-Moden Rusty Art,"30.629081, -96.3431360","https://www.google.com/maps?q=30.629081,-96.3431360"
+Modern Rusty Art,"30.629081, -96.3431360","https://www.google.com/maps?q=30.629081,-96.3431360"
 Hensel Park,"30.628469, -96.3453210","https://www.google.com/maps?q=30.628469,-96.3453210"
 Chicken Oil Company,"30.634506, -96.3544790","https://www.google.com/maps?q=30.634506,-96.3544790"
 Martin's Place,"30.637081, -96.3561040","https://www.google.com/maps?q=30.637081,-96.3561040"
