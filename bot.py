@@ -48,56 +48,47 @@ async def on_ready():
                 brief='Get a location pin for the gym.')
 async def pin(context, *gym_name):  
 
-    gymString = " ".join(gym_name)
-    gymNameArray = gymString.lower().split(" ")
-    if "the" in gymNameArray: gymNameArray.remove("the")
-    if "park" in gymNameArray: gymNameArray.remove("park")
-    if "church" in gymNameArray: gymNameArray.remove("church")
-    print("Gym name filtered: ")
-    gym_name = " ".join(gymNameArray)
-    print(gym_name)
-    if len(gym_name) > 0:
+    gym_name = " ".join(gym_name)
+   
+    if gym_name.lower() == "ai":
+        gym_name = "Animal Industries"
+    if gym_name.lower() == "etb":
+        gym_name = "Emerging Technologies"
+    if gym_name.lower() == "wa":
+        gym_name = "Wilderness Awakened"
 
     
-        if gym_name.lower() == "ai":
-            gym_name = "Animal Industries"
-        if gym_name.lower() == "etb":
-            gym_name = "Emerging Technologies"
-        if gym_name.lower() == "wa":
-            gym_name = "Wilderness Awakened"
 
+    matches = []
+    for key, value in GYMS.items():
+        if gym_name.lower() in key.lower():
+            name = key
+            gym = value
+            matches.append([name, gym])
+
+    # print('matches contains ' + str(len(matches)) + ' results')
+    if len(matches) > 1:
         
+        gymsString = ''
+        i = 1
+        print("matching gyms: \n")
+        for k in matches:
+            print(k[0] + " " + k[1])
+            gymsString += (str(i) + ".  " + k[0] + "\n")
+            i+=1
+        
+        await client.send_message(context.message.channel, 'Were you looking for one of these gyms?\n' + gymsString + "\nType **show [number]** to get your pin")
 
-        matches = []
-        for key, value in GYMS.items():
-            if gym_name.lower() in key.lower():
-                name = key
-                gym = value
-                matches.append([name, gym])
+        def check(msg):
+            return msg.content.lower().startswith('show')
 
-        # print('matches contains ' + str(len(matches)) + ' results')
-        if len(matches) > 1:
-            
-            gymsString = ''
-            i = 1
-            print("matching gyms: \n")
-            for k in matches:
-                print(k[0] + " " + k[1])
-                gymsString += (str(i) + ".  " + k[0] + "\n")
-                i+=1
-            
-            await client.send_message(context.message.channel, 'Were you looking for one of these gyms?\n' + gymsString + "\nType **show [number]** to get your pin")
-
-            def check(msg):
-                return msg.content.lower().startswith('show')
-
-            message = await client.wait_for_message(author=context.message.author, check=check)
-            num = message.content[len('show'):].strip()
-            pyrebase_worker.logPin(matches[int(num)-1][0], context.message.author.name)
-            await client.send_message(message.channel, matches[int(num)-1][0] + "\n" + matches[int(num)-1][1])
-        else:        
-            pyrebase_worker.logPin(matches[0][0], context.message.author.name)
-            await client.say(matches[0][0] + "\n" + matches[0][1]) 
+        message = await client.wait_for_message(author=context.message.author, check=check)
+        num = message.content[len('show'):].strip()
+        pyrebase_worker.logPin(matches[int(num)-1][0], context.message.author.name)
+        await client.send_message(message.channel, matches[int(num)-1][0] + "\n" + matches[int(num)-1][1])
+    else:        
+        pyrebase_worker.logPin(matches[0][0], context.message.author.name)
+        await client.say(matches[0][0] + "\n" + matches[0][1]) 
 
 
 
