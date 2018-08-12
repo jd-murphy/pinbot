@@ -204,7 +204,7 @@ async def on_message(message):
             await client.send_message(message.channel, "I know. :stuck_out_tongue:")
 
     if 'bad bot' in message.content.lower():
-        await client.send_message(message.channel, "<:emoji_name:478040808210300979>")
+        await client.send_message(message.channel, "<:bulbapepe:478040808210300979>")
     elif 'good bot' in message.content.lower():
         await client.send_message(message.channel, ":heart_eyes::heart_eyes::heart_eyes:")
     elif 'silly bot' in message.content.lower():
