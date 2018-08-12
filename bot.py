@@ -204,7 +204,7 @@ async def on_message(message):
             await client.send_message(message.channel, "I know. :stuck_out_tongue:")
 
     if 'bad bot' in message.content.lower():
-        await client.send_message(message.channel, ":bulbapepe:")
+        await client.send_file(message.channel, "https://cdn.discordapp.com/emojis/278578088294481923.png?v=1")
     elif 'good bot' in message.content.lower():
         await client.send_message(message.channel, ":heart_eyes::heart_eyes::heart_eyes:")
     elif 'silly bot' in message.content.lower():
