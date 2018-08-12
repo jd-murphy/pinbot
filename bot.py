@@ -207,6 +207,8 @@ async def on_message(message):
         await client.send_message(message.channel, ":sweat:")
     elif 'good bot' in message.content.lower():
         await client.send_message(message.channel, ":heart_eyes::heart_eyes::heart_eyes:")
+    elif 'silly bot' in message.content.lower():
+        await client.send_message(message.channel, "who, me? :see_no_evil:")
     
     
 
