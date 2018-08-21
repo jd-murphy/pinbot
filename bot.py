@@ -56,6 +56,8 @@ async def pin(context, *gym_name):
         gym_name = "Emerging Technologies"
     if gym_name.lower() == "wa":
         gym_name = "Wilderness Awakened"
+    if gym_name.lower() == "rch":
+        gym_name = "Richard Carter"
 
     
 
