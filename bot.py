@@ -169,8 +169,8 @@ async def manage(context):
 
 @client.command(pass_context=True)
 async def paypal(context):    
-    embed=discord.Embed(title="PayPal Link for Hundy Text Notifications", url="https://www.paypal.me/jrdnm", description="To receive text message notifications for @Hundy Chaser, please pay $1 per month to this PayPal link, and add your discord user name as the message for the payment. You can also pay $1 cash to @Aydenandjordan, just DM Jordan if you want to pay cash.", color=0x08d83b)
-    embed.set_author(name="Sign up for Hundy Text Notifications.")
+    embed=discord.Embed(title="PayPal Link for @Hundy Chaser Text Notifications", url="https://www.paypal.me/jrdnm", description="To receive text notifications for @Hundy Chaser, please pay $1 per month to this PayPal link. Add your discord name as the message for the payment. If you are signing up for the first time, DM @Aydenandjordan your cell phone number. You may pay $1 cash instead of PayPal, just send @Aydenandjordan a DM. ", color=0x08d83b)
+    embed.set_author(name="@Hundy Chaser Text Notifications.")
     await client.send_message(context.message.author, embed=embed)
 
 
