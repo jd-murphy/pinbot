@@ -141,7 +141,7 @@ async def phone(context):
     phone = ""
     def check(msg):
         phone = msg.content
-        return re.match(r"/^\d{3}-\d{3}-\d{4}$/gm", phone)
+        return bool(re.match(r"/^\d{3}-\d{3}-\d{4}$/gm", phone))
 
     message = await client.wait_for_message(author=context.message.author, check=check)
     if message == True:
