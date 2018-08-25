@@ -21,11 +21,9 @@ def paymentReminder():
             # print(user.key())
             # print(user.val())
             userDict = user.val()
-            if userDict["BCS Pokemon Go"].lower() == 'true':  #  stored as strings in firebase
-                print("userDict[\"name\"] -> " + userDict["name"])
-                print("userDict[\"phone\"] -> " + userDict["phone"])
-                print("userDict[\"BCS Pokemon Go\"] -> " + userDict["BCS Pokemon Go"])
-                nums.append(userDict["phone"])
+            print("userDict[\"name\"] -> " + userDict["name"])
+            print("userDict[\"phone\"] -> " + userDict["phone"])
+            nums.append(userDict["phone"])
        
 
 
