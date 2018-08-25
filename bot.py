@@ -138,7 +138,6 @@ async def texts(context):
 async def phone(context):
     await client.send_message(context.message.author, 'To add your phone number to the list type your 10 digit phone number in this format -> **555-555-5555**')
 
-    phone = ""
     def check(msg):
         print("checking message: " + str(msg.content))
         phone = msg.content
@@ -150,7 +149,7 @@ async def phone(context):
    
 
     result = await client.wait_for_message(author=context.message.author, check=check)
-    if result == True:
+    if result:
         print("valid phone... pushing!")
         pyrebase_worker.push(context.message.author.name, context.message.content, True, False)
         await client.send_message(context.message.author, "Successfully added your phone number " + context.message.content)
