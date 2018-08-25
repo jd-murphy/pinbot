@@ -46,7 +46,7 @@ def paymentReminder():
         status = "ERROR!"
         print('ERROR sending twilio payment reminder! -> ' + str(e))
     finally:
-        return 'Done: paymentReminder  -  Status: ' + status
+        print('Done: paymentReminder  -  Status: ' + status)
 
 
 
