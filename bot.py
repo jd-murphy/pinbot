@@ -144,19 +144,19 @@ async def phone(context):
         phone = msg.content
         print("phone: " + str(phone))
         if re.match(r'^(\d{3})-(\d{3})-(\d{4})$', phone):     
-           return [True, phone]
+           return True
         else:
-           return [False, phone]
+           return False
    
 
     result = await client.wait_for_message(author=context.message.author, check=check)
-    if result[0] == True:
+    if result == True:
         print("valid phone... pushing!")
-        pyrebase_worker.push(context.message.author.name, result[1], True, False)
-        await client.send_message(context.message.author, "Successfully added your phone number " + result[1])
+        pyrebase_worker.push(context.message.author.name, context.message.content, True, False)
+        await client.send_message(context.message.author, "Successfully added your phone number " + context.message.content)
     else:
         print("invalid phone... do not push!")
-        await client.send_message(context.message.author, "Hmmm, " + result[1] + " doesn't seem like a valid phone number. Type **+phone** to try again.")
+        await client.send_message(context.message.author, "Hmmm, that doesn't seem like a valid phone number. Type **+phone** to try again.")
 
 
 @client.command(pass_context=True)
