@@ -143,7 +143,7 @@ async def phone(context):
         print("checking message: " + str(msg.content))
         phone = msg.content
         print("phone: " + str(phone))
-        if bool(re.match(r"/^\d{3}-\d{3}-\d{4}$/gm", phone)):     
+        if re.match(r"(\d{3}\D{0,3}\d{3}\D{0,3}\d{4})", phone):     
             return True
         else:
             return False
