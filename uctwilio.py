@@ -27,16 +27,17 @@ def paymentReminder():
        
 
 
-        # messageBody = "This is a payment reminder for the @Hundy Chaser text notifications. If you wish to continue the service for another month please pay $1 by PayPal to https://www.paypal.me/jrdnm   Or you can call the command '$paypal' in the discord server to get the paypal link. If you have already paid you can ignore this message. If you wish to be removed from the service please private message @Aydenandjordan in discord. Thanks!"
-        messageBody = "This is just a test for the @Hundy Chaser text notifications. There may be a few texts that come out over the next few minutes. You can ignore this message. Thanks!"
+        messageBody = "This is a payment reminder for the @Hundy Chaser text notifications. If you wish to continue the service for another month please pay $1 by PayPal to https://www.paypal.me/jrdnm   Or you can call the command '$paypal' in the discord server to get the paypal link. If you have already paid you can ignore this message. If you wish to be removed from the service please private message @Aydenandjordan in discord. Thanks!"
+        # messageBody = "This is just a test for the @Hundy Chaser text notifications. There may be a few texts that come out over the next few minutes. You can ignore this message. Thanks!"
 
         for num in nums:
-            twilioMessage = twilioClient.messages.create(
-                    body=messageBody,
-                    from_=environ['from'],
-                    to=num
-                )
-            totalMessagesSent += 1
+            if num == "541-514-8992":
+                twilioMessage = twilioClient.messages.create(
+                        body=messageBody,
+                        from_=environ['from'],
+                        to=num
+                    )
+                totalMessagesSent += 1
 
         print('Payment reminder message sent - twilioMessage.sid -> ' + str(twilioMessage.sid))
         pyrebase_worker.log("SMS payment reminder sent. Contents: " + messageBody)
