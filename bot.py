@@ -139,7 +139,7 @@ async def phone(context):
     await client.send_message(context.message.author, 'To add your phone number to the list type your 10 digit phone number in this format -> **555-555-5555**')
 
     phone = ""
-    def check(msg):
+    async def check(msg):
         print("checking message: " + str(msg.content))
         phone = msg.content
         print("phone: " + str(phone))
