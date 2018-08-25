@@ -129,7 +129,7 @@ async def pyrebasePush(context, name, phone, bcspogo, aqua):
 
 @client.command(pass_context=True)
 async def texts(context):
-    await client.send_message(context.message.author, 'To sign up for Hundy text notifications you need to add your cell phone number and pay $1 per month. To add your phone number type  **+phone**  or to pay by PayPal type  **$paypal**  If you cannot use PayPal, private message @Aydenandjordan to make other arrangements.')
+    await client.send_message(context.message.author, 'To sign up for Hundy text notifications you need to add your cell phone number and pay $1 per month. \nTo add your phone number type  **+phone**  \nTo pay by PayPal type  **$paypal**  \nIf you cannot use PayPal, private message @Aydenandjordan to make other arrangements.')
 
 
 
