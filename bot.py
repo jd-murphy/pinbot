@@ -153,7 +153,7 @@ async def phone(context):
     if result:
         print("valid phone... pushing!")
         pyrebase_worker.push(context.message.author.name, result, True, False)
-        await client.send_message(context.message.author, "Successfully added your phone number " + phone)
+        await client.send_message(context.message.author, "Successfully added your phone number " + result)
     else:
         print("invalid phone... do not push!")
         await client.send_message(context.message.author, "Hmmm, that doesn't seem like a valid phone number. Type **+phone** to try again.")
