@@ -31,7 +31,7 @@ def paymentReminder():
         
 
         for num in nums:
-            if num != "979-575-1540" and num != "979-402-3130‬":
+            if num != "979-575-1540" and num != "979-402-3130‬" and num != "210-464-8654":
                 twilioMessage = twilioClient.messages.create(
                         body=messageBody,
                         from_=environ['from'],
