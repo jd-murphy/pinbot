@@ -219,6 +219,11 @@ async def paypal(context):
 
 
 
+@client.command(pass_context=True)
+async def dmFabs(context):
+        fabs = discord.utils.get(context.message.server.members, name="Fabsdabs")
+        await client.send_message(fabs, "Testing bot DM for fabsdabs")
+
 
 
 @client.event
@@ -232,6 +237,8 @@ async def on_message(message):
         print('status from : uctwilio.report3TS()' + status)
         member = discord.utils.get(message.server.members, id=environ['adminID'])
         await client.send_message(member, status)
+        fabs = discord.utils.get(message.server.members, name="Fabsdabs")
+        await client.send_message(fabs, message)
 
     # Role: HundyHunters   ID: 398995832978014210          
     if '<@&398995832978014210>' in message.content:
