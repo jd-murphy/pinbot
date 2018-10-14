@@ -239,4 +239,4 @@ Tiffany Park Sign,"30.6571750, -96.3044330","https://www.google.com/maps?q=30.65
 New Beginnings,"30.712688, -96.378603","https://www.google.com/maps?q=30.712688,-96.378603"
 First Baptist Church Gazebo (FBCG),"30.5873407,-96.3150989","https://www.google.com/maps?q=30.5873407,-96.3150989"
 Research Park,"30.6053783, -96.3597995","https://www.google.com/maps?q=30.6053783,-96.3597995"
-Brazos Community Outreach Center, "30.6929018, -96.3742192", "https://www.google.com/maps?q=30.6929018,-96.3742192"
+Brazos Community Outreach Center, "30.6929018,-96.3742192", "https://www.google.com/maps?q=30.6929018,-96.3742192"
