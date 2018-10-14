@@ -1,5 +1,5 @@
 Austin's Colony Park,"30.682789, -96.3343420","https://www.google.com/maps?q=30.682789,-96.3343420"
-Premiere Cinema, Bryan,"30.675821, -96.3368130","https://www.google.com/maps?q=30.675821,-96.3368130"
+Premiere Cinema,"30.675821, -96.3368130","https://www.google.com/maps?q=30.675821,-96.3368130"
 Boonville Cemetery,"30.672033, -96.3313430","https://www.google.com/maps?q=30.672033,-96.3313430"
 The Brazos Flower,"30.666491, -96.3206580","https://www.google.com/maps?q=30.666491,-96.3206580"
 Brazos Valley  Museum of Natural History,"30.666838, -96.3203680","https://www.google.com/maps?q=30.666838,-96.3203680"
